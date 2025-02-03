@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solar Savings Calculator</title>
+    <!--Tailwind CDN-->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+    <!-- Link to the external styles.css -->
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="media.css">
+
+    <link rel="preload" href="assets/images/hero-banner-1.jpg">
+
+</head>
+
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <!-- Navbar -->
+        <div class="nav-container">
+            <button class="nav-open-btn" aria-label="openmenu" data-nav-toggler>
+                <span class="line line-1"></span>
+                <span class="line line-2"></span>
+                <span class="line line-3"></span>
+            </button>
+        </div>
+        <div class="logo">
+            <h2>Rooftop Energy</h2>
+        </div>
+    </header>
+
+    <!--Hamburger Navbar-->
+    <div class="sidebar">
+        <div class="navbar" data-navbar>
+            <div class="wrapper">
+                <div class="logo">
+                    <h2>Rooftop Energy</h2>
+                </div>
+                <button class="nav-close-btn" aria-label="close menu" data-nav-toggler>
+                    <i class='bx bx-x'></i>
+                </button>
+                <ul class="navbar-list">
+
+                    <li>
+                        <a href="#home" class="navbar-link has-after" data-nav-link>Home</a>
+                    </li>
+                    <li>
+                        <a href="#about" class="navbar-link has-after" data-nav-link>About Us</a>
+                    </li>
+                    <li>
+                        <a href="#calculator" class="navbar-link has-after" data-nav-link>Solar Calculator</a>
+                    </li>
+                    <li>
+                        <a href="#contact" class="navbar-link has-after" data-nav-link>Contact</a>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+        <div class="overlay" data-nav-toggler data-overlay></div>
+    </div>
+
+    <main>
+        <!--Hero/Home-->
+        <section class="section-home" id="home" style="background-image: url('/assets/images/hero-banner-1.jpg');" data-section>
+            <div class="card-content">
+                <h1 class="h1 hero-title2">
+                    Save Money with Solar Energy
+                </h1>
+                <h3 class="hero-text2"> 
+                    Calculate your potential savings & get a free consultation.
+                </h3>
+                <a href="#calculator">
+                    <button class="btn-primary">Solar Savings Calculator</button>
+                </a>
+            </div>
+        </section>
+        <!-- Main Container -->
+        <div class="main-container">
+            <!--About & Services-->
+            <section class="section-about" id="about" aria-label="about" data-section>
+                <div class="about-container">
+                    <h2>About Us</h2>
+                    <div class="about">
+                        <h4 class="about-text">
+                            Rooftop Energy is at the forefront of Malaysia's solar energy revolution, dedicated to making sustainable energy solutions accessible to all Malaysians. 
+                            As a homegrown Malaysian company, we're transforming how businesses approach energy consumption through innovative solar technology solutions.
+                        </h4>
+                    </div>
+                    
+                    <h2>Services</h2>
+                    <div class="card-container">
+                        <div class="card-inner">
+                            <h3 class="cardtitle">What We Do: </h3>
+                            <ul>
+                                <li>Design and implement customized solar energy systems</li>
+                                <li>Provide innovative financing solutions for solar adoption </li>
+                                <li>Deliver end-to-end project management and installation </li>
+                                <li>Offer comprehensive after-sales support and monitoring</li>
+                            </ul>
+                        </div>
+                        <div class="card-inner">
+                            <h3 class="cardtitle">Our Expertise: </h3>
+                            <ul>
+                                <li>8.8MWp of successful solar installations</li>
+                                <li>Industrial and commercial solar solutions</li>
+                                <li>Advanced energy monitoring systems </li>
+                                <li>Professional engineering team</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div> 
+            </section>
+
+            <!-- Solar Calculator Section -->
+            <section class="section-calc" id="calculator" data-section>
+                <h2 class="text-2xl font-bold text-center mb-4">Solar Savings Calculator</h2>
+
+                <div class="text-center">
+                    <!-- Input for Monthly Bill -->
+                    <label for="billAmount" class="sr-only">Enter Monthly Bill (RM)</label>
+                    <input id="billAmount" type="number" placeholder="Enter Monthly Bill (RM)" 
+                        class="w-full p-3 border rounded-lg mb-4 focus:ring-2 focus:ring-yellow-400 sm:max-w-xs" 
+                        aria-describedby="billDescription" aria-required="true">
+
+                    <button onclick="calculateSolarSavings()" 
+                        class="w-full sm:w-auto mt-4 py-3 px-6 bg-yellow-500 text-black rounded-lg hover:bg-yellow-400 focus:outline-none font-semibold">
+                        Calculate Solar Savings
+                    </button>
+
+                    <!-- Error Message -->
+                    <p id="error" class="hidden" role="alert" aria-live="polite">Please enter a valid monthly bill amount.</p>
+
+                    <!-- Result Section -->
+                    <div id="result" class="hidden">
+                        <p>System Size: <span id="systemSize"></span> kWp</p>
+                        <p>Total Cost: RM <span id="totalCost"></span></p>
+                        <p>Target Payment: RM <span id="targetPayment"></span></p>
+                        <p>Loan Term: <span id="loanTerm"></span></p>
+                    </div>                
+                </div>
+            </section>
+
+            <!-- Callback Form Section-->
+            <section class="section-calc" id="callback" data-section>
+                <h2 class="text-2xl font-bold text-center mb-4">Request a Callback</h2>
+                <h4>We will call you back within 24 hours!</h4>
+
+                <form id="callbackForm">
+                    <input type="text" id="name" placeholder="Your Name" required class="p-3 border rounded-lg mb-4 w-full">
+                    <input type="email" id="email" placeholder="Your Email" required class="p-3 border rounded-lg mb-4 w-full">
+                    <input type="text" id="phone" placeholder="Your Phone" required class="p-3 border rounded-lg mb-4 w-full">
+                    
+                    <button type="submit" class="w-full sm:w-auto mt-4 py-3 px-6 bg-yellow-500 text-black rounded-lg hover:bg-yellow-400 focus:outline-none font-semibold">
+                        Request Callback
+                    </button>
+                </form>
+
+                <p id="formStatus" class="hidden"></p>
+            </section>
+
+        </div>
+
+    <!--Footer/Contact-->
+    <footer class="bg-gray-800 text-white py-6">
+        <div class="container mx-auto text-center" id="contact" aria-label="contact" data-footer>
+            <!-- Copyright Notice -->
+            <p class="text-sm mb-4">Rooftop Energy © 2024</p>
+            
+            <!-- Contact Information -->
+            <div class="text-sm space-y-2">
+                <p>Sales: <a href="mailto:sales@rooftop.my" class="hover:underline">sales@rooftop.my</a></p>
+                <p>Partnerships: <a href="mailto:partnerships@rooftop.my" class="hover:underline">partnerships@rooftop.my</a></p>
+                <p>Investors: <a href="mailto:investors@rooftop.my" class="hover:underline">investors@rooftop.my</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <!--Back to top button-->
+    <a href="#top" class="back-top-btn" aria-label="back to top" data-back-top-btn><i class='bx bx-up-arrow-alt'></i></a>
+
+        <!-- Frontend & Backend JavaScript -->
+        <script src="index.js"></script>
+        <script src="server.js"></script>
+        
+    </main>
+    
+</body>
+</html>

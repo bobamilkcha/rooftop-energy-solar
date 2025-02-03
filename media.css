@@ -1,0 +1,65 @@
+:root {
+    /*primary colours*/
+    --yellow : #fcd34d; 
+    --black : #000000;
+    --white : #ffffff;
+    --lightgray : rgb(183, 183, 183);
+    
+    /*typography*/
+    --ff-body : "Corbel Light", "Corbel", sans-serif;
+    --fs-bodym : 14px;
+    --fs-bodyd : 16px;
+    --fs-h1m : 28px;
+    --fs-h2m : 24px;
+    --fs-h3m : 20px;
+    --fs-h4m : 18px;
+    --fs-h1d : 32px;
+    --fs-h2d : 28px;
+    --fs-h3d : 24px;
+    --fs-h4d : 20px;
+    --lh-body : 1.5;
+    --fw-light : 300;
+}
+
+/* Responsive Adjustments */
+@media (min-width: 1024px) { 
+    .card-container h3 {
+        position: absolute; 
+        top: 35px; 
+    }
+    .card-inner li {
+        font-size: var(--fs-h4d);
+        font-weight: var(--fw-light);
+        line-height: var(--lh-body);
+        color: #444;
+        margin-bottom: 0.5rem;
+    }
+    header h1 {
+        font-size: var(--fs-h1d) !important;
+    }
+    h1 {
+        font-size: var(--fs-h1d) !important; 
+        text-align: center; 
+    }
+    h2 {
+        font-size: var(--fs-h2d) !important; 
+        text-align: center; 
+    }
+    h3 {
+        font-size: var(--fs-h3d) !important;
+        text-align: center; 
+    }
+    .about-text, h4 {
+        font-size: var(--fs-h4d) !important;
+        text-align: center; 
+    }
+    p {
+        font-size: var(--fs-bodyd) !important;
+        text-align: center; 
+    }
+
+    .container {
+        max-width: 1200px; /* Adjust layout for desktop */
+        margin: 0 auto;
+    }
+}

@@ -131,7 +131,7 @@ document.getElementById("callbackForm").addEventListener("submit", async functio
 
     try {
         // Send data to backend
-        const response = await fetch("http://localhost:5000/api/users", {
+        const response = await fetch("https://rooftop-energy-solar-savings-calc.onrender.com/api/users", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

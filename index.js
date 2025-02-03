@@ -99,7 +99,7 @@ function calculateSolarSavings() {
 
         n++; // Increase loan term if the monthly payment is still too high
     }
-    
+
     // Loan term message
     let loanTermMessage = n > MAX_LOAN_TERM
         ? "Loan term exceeds 20 years, consider a larger down payment."
@@ -130,7 +130,7 @@ document.getElementById("callbackForm").addEventListener("submit", async functio
     formStatus.classList.remove('hidden'); // status message
 
     try {
-        // Send data to backend
+        // Send data to backend deployed on render
         const response = await fetch("https://rooftop-energy-solar-savings-calc.onrender.com/api/users", {
             method: "POST",
             headers: {
